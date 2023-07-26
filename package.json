@@ -1,0 +1,56 @@
+{
+  "name": "code-analyzer",
+  "displayName": "Code Analyzer",
+  "description": "Analyze code snippets",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.69.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.analyzeCode"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.analyzeCode",
+        "title": "Analyze Code"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-analyzer",
+          "title": "Code Analyzer",
+          "icon": "$(flame)"
+        }
+      ]
+    },
+    "views": {
+      "code-analyzer": [
+        {
+          "id": "code-analyzer-view",
+          "name": "Code Analyzer"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "extension.analyzeCode",
+          "group": "bottom",
+          "when": "view == code-analyzer-view"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "express": "^4.18.2",
+    "openai": "^3.3.0",
+    "vscode": "^1.1.37"
+  }
+}
